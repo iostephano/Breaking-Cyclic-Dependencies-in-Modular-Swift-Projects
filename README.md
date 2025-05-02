@@ -10,12 +10,15 @@ Instead of direct dependencies between modules, we introduce a protocol to decou
 
 ## Project Structure
 
-AppDelegate.swift // App lifecycle entry
-SceneDelegate.swift // Scene lifecycle setup
-ViewController.swift // UIKit interface with buttons and canvas
-CanvasEngine.swift // Implements CanvasEngineProtocol, updates UI
-CanvasEngineProtocol.swift // Defines the abstraction for drawing
-BrushKit.swift // Depends on the protocol, not the concrete engine
+```swift
+SeparationRenderingLogic/
+├── AppDelegate.swift             // App launch and window setup
+├── SceneDelegate.swift           // Scene setup and root view controller configuration
+├── ViewController.swift          // UIKit interface: buttons, canvas, and interaction logic
+├── CanvasEngine.swift            // Concrete implementation of CanvasEngineProtocol, draws strokes
+├── CanvasEngineProtocol.swift    // Protocol abstraction used to decouple CanvasEngine from BrushKit
+├── BrushKit.swift                // Selects brushes and delegates drawing to the canvas via protocol
+```
 
 ---
 
